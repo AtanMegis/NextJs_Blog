@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Navbar.module.css'
-import Image from 'next/image.js'
+import Image from 'next/image'
 import ThemeToggle from '../ThemeToggle/ThemeToggle.jsx'
-import Link from 'next/link.js'
+import Link from 'next/link'
 import AuthLinks from '../AuthLinks/AuthLinks.jsx'
 
 const Navbar = () => {
@@ -40,6 +40,9 @@ const Navbar = () => {
                 </Link>
                 <Link href="/" className={styles.link}>
                     About
+                </Link>
+                <Link href="/write" className={styles.link}>
+                    Write
                 </Link>
                 <AuthLinks />
             </div>

@@ -21,11 +21,37 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: orange;
+    transition: all 0.5s ease;
+    animation-duration: 200ms;
+}
+
 .dark {
     --bg: #0f172a;
     --textColor: #ddd;
     --softBg: #1f273a;
     --softTextColor: #a6a6a6;
+}
+
+.light button {
+    background-color: darkgray;
+    color: black;
+    cursor: pointer;
+}
+
+.dark button {
+    cursor: pointer;
+}
+
+.light button:hover {
+    background-color: darkslategray;
+    color: white;
+}
+
+.dark button:hover {
+    background-color: darkslategray;
+    color: white;
 }
 
 .light {

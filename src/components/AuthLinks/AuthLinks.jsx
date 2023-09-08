@@ -1,24 +1,28 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './AuthLinks.module.css'
-import Link from 'next/link.js'
+import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
 
 const AuthLinks = () => {
     const [open, setOpen] = useState(false)
-    const status = 'notAuthenticated'
+
+    const { status } = useSession()
 
     return (
         <>
-            {status === 'notAuthenticated' ? (
-                <Link href="Login" className={styles.link}>
+            {status === 'unauthenticated' ? (
+                <Link href="/login" className={styles.link}>
                     Login
                 </Link>
             ) : (
                 <>
-                    <Link href="Logout" className={styles.link}>
-                        Logout
+                    <Link href="/write" className={styles.link}>
+                        Write
                     </Link>
-                    <span className={styles.link}></span>
+                    <span className={styles.link} onClick={signOut}>
+                        Logout
+                    </span>
                 </>
             )}
             <div className={styles.burger} onClick={() => setOpen(!open)}>
@@ -28,15 +32,15 @@ const AuthLinks = () => {
             </div>
             {open && (
                 <div className={styles.responsiveMenu}>
-                    <Link href="/">Home</Link>
+                    <Link href="/">Homepage</Link>
                     <Link href="/">About</Link>
                     <Link href="/">Contact</Link>
-                    {status === 'notAuthenticated' ? (
-                        <Link href="Login">Login</Link>
+                    {status === 'notauthenticated' ? (
+                        <Link href="/login">Login</Link>
                     ) : (
                         <>
-                            <Link href="Logout">Logout</Link>
-                            <span className={styles.link}></span>
+                            <Link href="/write">Write</Link>
+                            <span className={styles.link}>Logout</span>
                         </>
                     )}
                 </div>
