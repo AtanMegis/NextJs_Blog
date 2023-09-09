@@ -42,6 +42,8 @@ a:hover {
 
 .dark button {
     cursor: pointer;
+    background-color: darkslategray;
+    color: white;
 }
 
 .light button:hover {
@@ -50,7 +52,7 @@ a:hover {
 }
 
 .dark button:hover {
-    background-color: darkslategray;
+    background-color: rgba(255, 20, 145, 0.897);
     color: white;
 }
 

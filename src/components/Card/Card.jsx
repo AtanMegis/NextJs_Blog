@@ -8,8 +8,8 @@ const Card = ({ key, item }) => {
             {item.img && (
                 <div className={styles.imageContainer}>
                     <Image
-                        src={item.img}
-                        alt=""
+                        src="/p1/jpeg"
+                        alt={item.img}
                         fill
                         className={styles.image}
                     />
@@ -18,14 +18,14 @@ const Card = ({ key, item }) => {
             <div className={styles.textContainer}>
                 <div className={styles.detail}>
                     <span className={styles.date}>
-                        {item.createdAt.substring(0, 10)} -{' '}
+                        {item.createdAt.substring(0, 10)}
                     </span>
                     <span className={styles.category}>{item.catSlug}</span>
                 </div>
                 <Link href={`/posts/${item.slug}`}>
                     <h1>{item.title}</h1>
                 </Link>
-                {/* <p className={styles.desc}>{item.desc.substring(0, 60)}</p> */}
+                <p className={styles.desc}>{item.desc.substring(0, 60)}</p>
                 <div
                     className={styles.desc}
                     dangerouslySetInnerHTML={{
