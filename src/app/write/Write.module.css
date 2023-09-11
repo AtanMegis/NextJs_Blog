@@ -51,7 +51,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: var(--textColor);
+    color: white;
 }
 
 .input::placeholder {

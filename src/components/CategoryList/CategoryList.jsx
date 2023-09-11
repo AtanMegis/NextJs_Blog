@@ -11,8 +11,10 @@ const getData = async () => {
     if (!res.ok) {
         throw new Error('Failed')
     }
+
     return res.json()
 }
+
 const CategoryList = async () => {
     const data = await getData()
     return (
@@ -21,7 +23,7 @@ const CategoryList = async () => {
             <div className={styles.categories}>
                 {data?.map((item) => (
                     <Link
-                        href="/blog?cat=style"
+                        href={`/posts/${item.slug}`}
                         className={`${styles.category} ${styles[item.slug]}`}
                         key={item._id}
                     >

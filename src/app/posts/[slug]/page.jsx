@@ -30,7 +30,7 @@ const SinglePage = async ({ params }) => {
                             <div className={styles.userImageContainer}>
                                 <Image
                                     src={data.user.image}
-                                    alt=""
+                                    alt={data.user.image}
                                     fill
                                     className={styles.avatar}
                                 />
@@ -38,9 +38,11 @@ const SinglePage = async ({ params }) => {
                         )}
                         <div className={styles.userTextContainer}>
                             <span className={styles.username}>
-                                {data?.user.name}
+                                {data?.user?.name}
                             </span>
-                            <span className={styles.date}>01.01.2024</span>
+                            <span className={styles.date}>
+                                {data?.createdAt ?? 'No Post yet'}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -48,7 +50,7 @@ const SinglePage = async ({ params }) => {
                     <div className={styles.imageContainer}>
                         <Image
                             src={data.img}
-                            alt=""
+                            alt={data.img}
                             fill
                             className={styles.image}
                         />
@@ -59,7 +61,9 @@ const SinglePage = async ({ params }) => {
                 <div className={styles.post}>
                     <div
                         className={styles.description}
-                        dangerouslySetInnerHTML={{ __html: data?.desc }}
+                        dangerouslySetInnerHTML={{
+                            __html: data?.desc ? data.desc : '',
+                        }}
                     />
                     <div className={styles.comment}>
                         <Comments postSlug={slug} />

@@ -8,7 +8,7 @@ const Card = ({ key, item }) => {
             {item.img && (
                 <div className={styles.imageContainer}>
                     <Image
-                        src="/p1/jpeg"
+                        src={item.img}
                         alt={item.img}
                         fill
                         className={styles.image}
@@ -25,11 +25,15 @@ const Card = ({ key, item }) => {
                 <Link href={`/posts/${item.slug}`}>
                     <h1>{item.title}</h1>
                 </Link>
-                <p className={styles.desc}>{item.desc.substring(0, 60)}</p>
                 <div
                     className={styles.desc}
                     dangerouslySetInnerHTML={{
-                        __html: item?.desc.substring(0, 60),
+                        __html: item?.desc
+                            ? item.desc
+                                  .substring(0, 120)
+                                  .replace(/<p>/g, '')
+                                  .replace(/<\/p>/g, '')
+                            : '',
                     }}
                 />
                 <Link href={`/posts/${item.slug}`} className={styles.link}>
